@@ -4,6 +4,6 @@ import rotas from "./rotas.js";
 const app = express();
 
 app.use(express.json());
-app.use('/lojaboA', rotas);
+app.use('/produtos', rotas);
 
 export default app;
