@@ -1,0 +1,29 @@
+[
+  {
+    "id": 1,
+    "titulo": "HD 1 Terabyte",
+    "fabricante": "asus",
+    "quantidade": 10,
+    "ano": 2023,
+    "categoria": "hardware",
+    "preco": 500
+  },
+  {
+    "id": 2,
+    "titulo": "SSD 512 GB",
+    "fabricante": "asus",
+    "quantidade": 10,
+    "ano": 2023,
+    "categoria": "hardware",
+    "preco": 500
+  },
+  {
+    "id": 3,
+    "titulo": "teclado",
+    "fabricante": "danten",
+    "quantidade": 10,
+    "ano": 2025,
+    "categoria": "periferico",
+    "preco": 50
+  }
+]
