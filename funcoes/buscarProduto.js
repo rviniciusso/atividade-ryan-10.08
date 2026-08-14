@@ -1,4 +1,4 @@
-import fs from "fs";
+const fs = require("fs");
 
 const estoqueLoja = "./estoque/estoque.json";
 
@@ -13,4 +13,4 @@ function buscarProduto(id) {
     return item.find(item => item.id === numericId) || null;
 }
 
-export { buscarProduto };
+module.exports = { buscarProduto };

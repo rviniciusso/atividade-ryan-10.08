@@ -1,25 +1,22 @@
-import express from "express"
-import { buscarProduto } from "./funcoes/buscarProduto.js";
-import { listarProduto } from "./funcoes/listarProduto.js";
-import { cadastrarProduto } from "./funcoes/cadastrarProduto.js";
+const buscar = require("../funcoes/buscarProduto.js");
+const listar = require("../funcoes/listarProduto.js");
+const cadastro = require("../funcoes/cadastrarProduto.js");
 
-const router = express.Router(); 
-
-router.get('/listar', (req, res) => {
-    const produtos = listarProduto();
+exports.listarProduto = (req, res) => {
+    const produtos = listar.listarProduto();
     return res.json(produtos);
-});
+};
 
-router.get('/buscar/:id', (req, res) => {
+exports.buscarProduto = (req, res) => {
     const { id } = req.params;
-    const item = buscarProduto(id);
+    const item = buscar.buscarProduto(id);
     if (!item) {
         return res.status(404).json({ error: 'Item não encontrado' });
     }
     return res.json(item);
-});
+};
 
-router.post('/cadastro', (req, res) => {
+exports.cadastrarProduto = (req, res) => {
     const {  id, nome, preco, quantidade, categoria } = req.body;
     const missingFields = [];
 
@@ -35,14 +32,12 @@ router.post('/cadastro', (req, res) => {
         });
     }
 
-    if (buscarProduto(id)) {
+    if (buscar.buscarProduto(id)) {
         return res.status(409).json({
             error: `Já existe um item com o ID ${id}`
         });
     }
 
-    const itemCriado = cadastrarProduto({ id, nome, preco, quantidade, categoria });
+    const itemCriado = cadastro.cadastrarProduto({ id, nome, preco, quantidade, categoria });
     return res.status(201).json(itemCriado);
-});
-
-export default router;
+};

@@ -1,4 +1,4 @@
-import fs from "fs";
+const fs = require("fs");
 
 const estoqueLoja = "./estoque/estoque.json";
 
@@ -28,4 +28,4 @@ function cadastrarProduto({ id, nome, preco, quantidade, categoria }) {
     return novoItem;
 }
 
-export { cadastrarProduto };
+module.exports = { cadastrarProduto };

@@ -1,9 +1,9 @@
-import express from "express";
-import rotas from "./rotas.js";
+const express = require("express");
+const rotas = require("./rotas/rotas.js");
 
 const app = express();
 
 app.use(express.json());
 app.use('/produtos', rotas);
 
-export default app;
+module.exports = app;

@@ -1,4 +1,4 @@
-import fs from "fs";
+const fs = require("fs");
 
 const estoqueLoja = "./estoque/estoque.json";
 
@@ -11,4 +11,4 @@ function listarProduto() {
     return lerEstoque();
 }
 
-export { listarProduto }
+module.exports = { listarProduto };
