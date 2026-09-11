@@ -6,5 +6,6 @@ const router = express.Router();
 router.get('/', controller.listarProduto);
 router.get('/buscar/:id', controller.buscarProduto);
 router.post('/cadastro', controller.cadastrarProduto);
+router.post('/login', controller.login);
 
 module.exports = router;

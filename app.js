@@ -7,6 +7,6 @@ const app = express();
 app.use(cors());
 
 app.use(express.json());
-app.use('/produtos', rotas);
+app.use('/', rotas);
 
 module.exports = app;

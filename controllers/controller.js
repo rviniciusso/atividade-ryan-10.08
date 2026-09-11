@@ -1,10 +1,20 @@
 const buscar = require("../funcoes/buscarProduto.js");
 const listar = require("../funcoes/listarProduto.js");
 const cadastro = require("../funcoes/cadastrarProduto.js");
+const logar = require("../funcoes/login.js");
 
 exports.listarProduto = (req, res) => {
     const produtos = listar.listarProduto();
     return res.json(produtos);
+};
+
+exports.login = (req, res) => {
+    const { email, senha } = req.body;
+    const token = logar.login(email, senha);
+    if (!token) {
+        return res.status(401).json({ error: 'Credenciais inválidas' });
+    }
+    return res.json({token});
 };
 
 exports.buscarProduto = (req, res) => {
