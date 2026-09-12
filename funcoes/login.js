@@ -1,10 +1,17 @@
 const jwt = require("jsonwebtoken");
+require('dotenv').config()
 
-const login = (email, senha) => {
+function login (email, senha) {
     if (email === "123@gmail.com" && senha === "123") {
-        const token = jwt.sign({email}, process.env.JWT-SECRET-KEY, {expiresIn: "1h"})
+        const token = jwt.sign(
+            {sub: 1, role: "admin"},
+            process.env.JWT_SECRET_KEY,
+            {expiresIn: "1h"}
+        )
         return { token };
     }else{ 
         return null;
     }
 }
+
+module.exports = { login };

@@ -10,7 +10,7 @@ exports.listarProduto = (req, res) => {
 
 exports.login = (req, res) => {
     const { email, senha } = req.body;
-    const token = logar.login(email, senha);
+    const token = logar.login(email, senha)
     if (!token) {
         return res.status(401).json({ error: 'Credenciais inválidas' });
     }
