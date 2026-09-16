@@ -4,8 +4,15 @@ const cadastro = require("../funcoes/cadastrarProduto.js");
 const logar = require("../funcoes/login.js");
 
 exports.listarProduto = (req, res) => {
-    const produtos = listar.listarProduto();
+    const {filter} = req.query;
+    if (filter) {
+        const produtos = listar.listarProduto();
+        const produtosFiltrados = produtos.filter(p => p.nome.toLowerCase().includes(filter.toLowerCase()));
+        return res.json(produtosFiltrados);
+    }else{
+    const produtos = listar.listarProduto()
     return res.json(produtos);
+    }
 };
 
 exports.login = (req, res) => {
