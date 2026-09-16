@@ -34,10 +34,9 @@ exports.buscarProduto = (req, res) => {
 };
 
 exports.cadastrarProduto = (req, res) => {
-    const {  id, nome, preco, quantidade, categoria } = req.body;
+    const { nome, preco, quantidade, categoria } = req.body;
     const missingFields = [];
 
-    if (!id) missingFields.push('id');
     if (!nome) missingFields.push('nome');
     if (!preco) missingFields.push('preco');
     if (!quantidade) missingFields.push('quantidade');
@@ -55,6 +54,6 @@ exports.cadastrarProduto = (req, res) => {
         });
     }
 
-    const itemCriado = cadastro.cadastrarProduto({ id, nome, preco, quantidade, categoria });
+    const itemCriado = cadastro.cadastrarProduto({ nome, preco, quantidade, categoria });
     return res.status(201).json(itemCriado);
 };

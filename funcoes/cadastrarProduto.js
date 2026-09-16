@@ -12,15 +12,16 @@ function salvarEstoque(estoque) {
     fs.writeFileSync(estoqueLoja, dados, "utf8");
 }
 
-function cadastrarProduto({ id, nome, preco, quantidade, categoria }) {
+function cadastrarProduto({ nome, preco, quantidade, categoria }) {
     const item = lerEstoque();
+    console.log(item);
     const novoItem = {
-        id: Number(id),
         nome,
         preco: Number(preco),
-        categoria,
-        estoque: Number(quantidade)
+        estoque: Number(quantidade),
+        categoria
     };
+    console.log(novoItem);
 
     item.push(novoItem);
     salvarEstoque(item);
